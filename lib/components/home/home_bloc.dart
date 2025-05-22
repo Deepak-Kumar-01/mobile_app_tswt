@@ -10,6 +10,11 @@ class OnLoadHome extends HomeEvent {
   OnLoadHome({this.isFirstTime = false, this.isRefresh = false});
 }
 
+class OnHomeTabPressed extends HomeEvent {
+  int tabPosition;
+  OnHomeTabPressed(this.tabPosition);
+}
+
 //State
 abstract class HomeState {}
 
@@ -21,6 +26,11 @@ class ShowUserAuthentication extends HomeState {}
 
 class AuthenticationSuccess extends HomeState {}
 
+class HomeTabSelected extends HomeState {
+  final int tabPosition;
+  HomeTabSelected(this.tabPosition);
+}
+
 class ErrorLoadingHome extends HomeState {
   final String errorMessage;
   ErrorLoadingHome({required this.errorMessage});
@@ -29,7 +39,6 @@ class ErrorLoadingHome extends HomeState {
 // Bloc
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeLoading()) {
-    //OnLoadHome Event
     on<OnLoadHome>((event, emit) async {
       if (event.isFirstTime) {
         emit(ShowSplashScreen());
@@ -44,6 +53,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         }
       }
       emit(AuthenticationSuccess());
+      emit(HomeTabSelected(0));
+    });
+    on<OnHomeTabPressed>((event,emit)async{
+      emit(HomeTabSelected(event.tabPosition));
     });
   }
 }

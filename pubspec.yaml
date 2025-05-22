@@ -41,6 +41,9 @@ dependencies:
   hive: ^2.2.3
   path_provider: ^2.1.5
   fluttertoast: ^8.2.12
+  table_calendar: ^3.2.0
+  flutter_launcher_icons: "^0.14.3"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -51,6 +54,13 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logo/app-logo.png"
+  background_color: "#000000"   # Change this to your desired color
+  adaptive_icon_background: "#000000" # For Android 8.0+
+  adaptive_icon_foreground: "assets/logo/app-logo.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -64,8 +74,23 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/logo/
+    - assets/dashboard_icons/icons8-home.png
+    - assets/dashboard_icons/icons8-home-grey.png
+    - assets/dashboard_icons/icons8-order-history.png
+    - assets/dashboard_icons/icons8-order-history-grey.png
+    - assets/dashboard_icons/icons8-logout.png
+    - assets/dashboard_icons/icons8-logout-grey.png
+    - assets/workout_gifs/full_body_burn/jumping_jacks.gif
+    - assets/workout_gifs/full_body_burn/push_up.gif
+    - assets/workout_gifs/full_body_burn/squats.gif
+    - assets/workout_gifs/upper_body_pump/triceps_dips.gif
+    - assets/workout_gifs/upper_body_pump/shoulder_tap_pushup.gif
+    - assets/workout_gifs/leg_day/lunges.gif
+    - assets/workout_gifs/leg_day/sled_horizontal_leg_press.gif
+    - assets/workout_gifs/leg_day/sled_leg_press.gif
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
