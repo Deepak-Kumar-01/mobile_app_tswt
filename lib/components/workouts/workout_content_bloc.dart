@@ -1,5 +1,4 @@
 //Event
-
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
@@ -36,8 +35,6 @@ class WorkoutSessionCompleted extends WorkoutState {}
 
 class ShowTimer extends WorkoutState {}
 
-// class ShowExercises extends WorkoutState {}
-
 class ShowExercises extends WorkoutState {
   int current;
   int exerciseDuration;
@@ -61,7 +58,7 @@ class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
       await Future.delayed(Duration(seconds: 4));
       await _startExerciseTimer(
         emit: emit,
-        duration: 3,
+        duration: 15,
         currentIndex: 0,
         exercises: event.exercises,
       );
@@ -72,7 +69,7 @@ class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
       await Future.delayed(Duration(seconds: 4));
       await _startExerciseTimer(
         emit: emit,
-        duration: 3,
+        duration: 15,
         currentIndex: event.exerciseNo,
         exercises: event.exercises,
       );
@@ -95,31 +92,11 @@ class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
 
       if (existingWorkout.isNotEmpty) {
         updatedEntries = existingWorkout.map((item) => Map<String, dynamic>.from(item)).toList();
-        // Append today's new workouts
         updatedEntries.addAll(newEntries);
-        print("updated records ${updatedEntries}");
-        // Save using a string key
         await box.put(today, updatedEntries);
       }else{
         await box.put(today, newEntries);
       }
-
-      // final Map<DateTime, List<WorkoutEntry>> result = {};
-      //
-      // for (final key in box.keys) {
-      //   final date = DateTime.parse(key);
-      //
-      //   final rawList = box.get(key) as List<dynamic>;
-      //
-      //   final List<WorkoutEntry> entries = rawList.map((item) {
-      //     final map = Map<String, dynamic>.from(item);
-      //     return WorkoutEntry(map['name'], map['details']);
-      //   }).toList();
-      //
-      //   result[date] = entries;
-      // }
-      // print("entries for ${result}");
-
       emit(WorkoutSessionCompleted());
     });
 

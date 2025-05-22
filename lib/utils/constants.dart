@@ -28,7 +28,7 @@ final workouts = <Workout>[
     description: 'Strengthen your legs with these focused exercises.',
     exercises: [
       Exercise(name: 'Lunges', reps: 12, sets: 3, gif: 'assets/workout_gifs/leg_day/lunges.gif'),
-      Exercise(name: 'Horizontal Leg Push', durationSeconds: 45, gif: 'assets/workout_gifs/leg_day/sled_horizontal_leg_press.gif'),
+      Exercise(name: 'Horizontal Leg Push', reps: 1, durationSeconds: 45, gif: 'assets/workout_gifs/leg_day/sled_horizontal_leg_press.gif'),
       Exercise(name: 'Leg Press', reps: 20, sets: 3, gif: 'assets/workout_gifs/leg_day/sled_leg_press.gif'),
     ],
   ),

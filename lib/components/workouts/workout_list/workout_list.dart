@@ -20,10 +20,11 @@ class WorkoutList extends StatelessWidget {
             final workout= workoutList[index];
             return Card(
               margin: EdgeInsets.all(8),
+              color: Colors.green,
               child: ListTile(
-                title: Text(workout.title),
-                subtitle: Text(workout.description),
-                trailing: Icon(Icons.arrow_forward_ios),
+                title: Text(workout.title,style: Theme.of(context).textTheme.titleMedium),
+                subtitle: Text(workout.description,style: TextStyle(color: Colors.white),),
+                trailing: Icon(Icons.arrow_forward_ios,color: Colors.white,),
                 onTap: () {
                   Navigator.push(
                     context,
