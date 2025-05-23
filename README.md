@@ -52,8 +52,8 @@ A mobile mini-challenge app built using Flutter and Firebase that allows users t
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/your-username/workout-tracker.git
-   cd workout-tracker
+   git clone https://github.com/Deepak-Kumar-01/mobile_app_tswt.git
+   cd mobile_app_tswt
    ```
 
 2. **Install dependencies**
